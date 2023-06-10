@@ -1,0 +1,69 @@
+{{!-- DEVELOPER NOTE: This page was added late in development. In future development, we would like to add features like comment threads, developer replies, and a report function. We would also love to add a "live chat" functionality here, where users can post quick questions and quick answers. For now, it is primarily a review space for the site itself. --}}
+
+    <div  class="card  mx-auto  mt-4 p-3"
+        style=" border-radius: 30px; background: #163850; color: #ffffff">
+        <div class="row    mx-auto "
+            style=" align-items: center; justify-content:center; background: #163850; color: #ffffff">
+
+
+
+
+            <h2 class="text-center">Tell us what you think of Castle Journal.<br> See what others think as well.
+            </h2>
+
+
+            <form class="card-body new-review-form row">
+                <div class="col-5 ">
+
+                    <input class="form-control mb-3" type="text" id="review-title" name="user-name"
+                        placeholder="Feedback Topic" />
+                </div>
+
+                <div class="col-5 offset-2">
+
+                    <input type="number" id="star_rating" name="star_rating"
+                        placeholder="Rate your experience from 1 to 5 stars." class="form-control mb-3" />
+                </div>
+                <div>
+                    
+                    <textarea class="form-control mb-3" id="review" name="review" rows="5"
+                        placeholder="Provide more detail about your experience here."></textarea>
+                </div>
+                <button type="submit" OnClick="dashboard" class="btn btn-outline-light mx-auto col-md-4 mt-2 mb-2">Add
+                    Feedback</button>
+            </form>
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+    
+
+
+
+
+
+
+
+    <section>
+        
+        {{#if reviews.length}}
+
+        {{#each reviews as |review|}}
+        {{> card review}}
+        <hr>
+        {{/each}}
+
+    </section>
+    {{/if}}
+
+<script src="/js/add-review.js"></script>

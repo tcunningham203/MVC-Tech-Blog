@@ -1,0 +1,104 @@
+{{!-- DEVELOPER NOTE: All other handlebars pages feature the content on this page. The main thing this page has is the nav bar and the background color. When not logged in, the nav bar displays the title only. Once a user has logged in, buttons are added to the nav bar. This extends to certain js files as well, featured at the bottom of this page.
+
+This site uses media queries to create a good user experience for mobile users. On smaller screens, a "hamburger" button replaces the standard nav bar. --}}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Japanese Castles</title>
+    <link rel="stylesheet" href="/css/jass.css">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css.map" rel="stylesheet">
+    <link href="/css/bootstrap-icons.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/star-rating.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+
+<body class=" mb-2 text-grey" style="background-color: #576672; color: #cecece;">
+    
+    <header class=" ">
+        <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #163850;">
+            <div class="container-fluid justify-content-center ">
+                <h1 class="navbar-brand mt-2 mx-auto ms-2 me-2 " style="font-size: 1.5rem">日本 Castle Journal</h1>
+                {{#if logged_in}}
+                <button class="navbar-toggler mt-1 mb-1 ms-3 me-1" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse   " id="navbarSupportedContent">
+
+{{!-- DEVELOPER NOTE: This search bar was removed during development. We would like to add it back in the future, so we have left the commented out code here. --}}
+
+                    {{!-- <form class="d-flex col-lg-5 mt-2 "> --}}
+                        {{!-- <input class="form-control bg-light me-3 mb-0 " type="search" style="font-size: 1rem; "
+                            placeholder="Search for castles by name, prefecture, number, city, or region"
+                            aria-label="Search"> --}}
+                        {{!-- <button class="btn btn-light  mb-0" type="submit" style="font-size: 1.5rem"><i
+                                class="bi-search" style="font-size: 1.5rem; "></i></button> --}}
+                        {{!-- </form> --}}
+                    <ul class="row navbar-nav  flex-fill bd-highlight ms-auto ">
+                        <div class="d-grid gap-2 d-lg-flex  flex-fill bd-highlight ">
+                            <div class="row col-lg-6 offset-lg-2">
+                            <button class="btn btn-outline-light  col-6 col-lg-5 mx-auto " id="map" type="button"
+                                style="font-size: 1.5rem" onclick="renderMapPage()"><i class="bi-geo-alt"
+                                    style="font-size: 1.5rem; "></i> Castle Map</button>
+                            <button class="btn btn-outline-light  col-6 mx-auto col-lg-5" id="stamps" type="button"
+                                style="font-size: 1.5rem" onclick="renderStampsPage()"><i class="bi-journal-check "
+                                    style="font-size: 1.5rem; "></i> My Stamps</button>
+                            </div><div class="row col-lg-3 offset-lg-1">
+                            <button class="btn btn-outline-secondary me-auto  col-lg-6 col-6 " id="" type="button"
+                                style="font-size: 1rem" onclick="renderTestimonialsPage()"><i
+                                    class="bi-chat-left-quote " style="font-size: 1rem;  "></i> Feedback</button>
+                            <button class="btn btn-outline-secondary me-auto col-lg-5  col-6  " id="logout" type="button"
+                                style="font-size: 1rem"><i class="bi-power" style="font-size: 1rem;  "></i>
+                                Logout</button>
+                           </div>
+                        </div>
+                    </ul>
+
+                    {{/if}}
+
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <main class="container container-fluid mt-2 ">
+
+        <div class="spinner-wrapper">
+            <div class="spinner">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div id="page-wrapper">
+            {{{ body }}}
+        </div>
+    </main>
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    <script src="/js/pages.js"></script>
+
+    
+
+    <script src="/js/bookflip.js"></script>
+    <script src="/js/addHideStamp.js"></script>
+    <script src="/js/saveDeleteStamp.js"></script>
+    
+
+    {{/if}}
+    <script src="/js/jquery.js" type="module"></script>
+    <script src="/js/umd/popper.min.js"></script>
+
+    <script src="/js/bootstrap.bundle.min.js" defer type="module"></script>
+    <script src="/js/waitforload.js"></script>
+
+</body>
+
+</html>

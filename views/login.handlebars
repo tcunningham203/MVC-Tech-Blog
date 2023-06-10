@@ -1,0 +1,180 @@
+{{!-- DEVELOPER NOTE: This page is the starting point for the whole project. We used one of the modules from our classwork to figure out a good file structure, and used its login page as the starting point. As the project went on and the vision became realized, we gradually removed that starter code and replaced it with our own for our purposes. --}}
+
+<div class="row justify-content-center ">
+  <h4 class="p-3 col-10 " style=" color: #ffffff">
+    In 2006, the Japanese Castle Association released a list of Top 100 Japanese castles. Travel through Japan and find
+    the rubber stamp station at each castle. You're meant to press stamps into the official guide book pictured below.
+    However, the guide book is written entirely in Japanese.
+    <br><br>
+    Castle Journal is an English companion app for the guide book. Use Castle Journal to plan your trip, write your
+    experiences, and keep a checklist of stamps you've collected.
+  </h4>
+</div>
+
+
+
+
+<div class="row  " style="justify-content:space-evenly">
+  <div class="col-lg-4 mb-4">
+    <div class=" p-4 mx-auto border border-white " style="background: #163850; border-radius: 30px;">
+      <img src="/images/bookcover.png" class=" mx-auto d-block img-fluid" style="border-radius: 30px; ">
+    </div>
+  </div>
+
+
+
+
+  <div class="col-lg-6 ">
+
+
+    <div class="card p-0  nav nav-tabs nav-fill col-lg-12"
+      style="max-width: 600px; height: 100%; margin:0; display: contents;   background: #576672; color: #ffffff"
+      id="element2">
+
+      <nav class="  col-lg-12  p-0 ">
+        <div class="nav nav-tabs nav-fill p-0 border-0 bg-transparent col-lg-12 m-0"
+          style=" background: #576672; color: #ffffff " id="nav-tab" role="tablist">
+          <button class="nav-link active col-6 " id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
+            type="button" role="tab" aria-controls="nav-home" aria-selected="false"
+            style="border-top-left-radius: 30px; border-top-right-radius: 30px; background: #163850; color: #ffffff; font-size:1.5rem;">Log
+            In</button>
+          <button class="nav-link col-6" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+            type="button"
+            style=" border-top-left-radius: 30px; border-top-right-radius: 30px; background: #163850; color: #ffffff; font-size:1.5rem;"
+            role="tab" aria-controls="nav-profile" aria-selected="false"><span class="long-text">Create
+              Account</span><span class="short-text">New User</span></button>
+
+        </div>
+      </nav>
+      <div class="tab-content  " id="nav-tabContent">
+        <div class="tab-pane fade active show  " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+          <div id="historyborder" class="card  border border-white mx-auto col-12 "
+            style=" border-bottom-right-radius: 30px; border-bottom-left-radius: 30px; background: #163850; color: #ffffff">
+            <div class="row    mx-auto "
+              style="border-bottom-right-radius: 30px; border-bottom-left-radius: 30px; align-items: center; justify-content:center; background: #163850; color: #ffffff">
+
+
+
+
+              <h2 class="text-center"><br>Continue your adventure.</h2>
+
+
+
+
+
+              <form class="form login-form">
+                <div class="form-group">
+
+                  <br>
+                  <input class="form-input" placeholder="Email" type="text" id="email-login" />
+                </div>
+                <div class="form-group">
+                  <br>
+                  <input class="form-input" placeholder="Password" type="password" id="password-login" />
+                </div>
+
+                <div class="col-12 mt-4 mb-4" style="display: flex;justify-content: space-evenly; flex-direction: row;">
+
+
+
+                  <button class="btn btn-outline-light col-4 mt-4 mb-4" type="submit">Log In</button>
+                </div>
+
+                {{!-- this toast appears when the username or pass is wrong. relevant js for ALL toasts is in the
+                public login script--}}
+                <div class="toast bg-danger text-white text-center " style="position: absolute; " id="incorrect1"
+                  data-bs-delay="3300">
+
+                  <strong class="me-auto h4 "><i class="bi-exclamation-triangle "></i> Incorrect username or
+                    password.</strong>
+                </div>
+
+                {{!-- this toast appears when you log in successfully. relevant js for ALL toasts is in the public
+                login script--}}
+                <div class="toast bg-success text-white text-center " style="position: absolute; " id="asdf1"
+                  data-bs-delay="1500">
+
+                  <strong class="me-auto h4 "><i class="bi-check-circle "></i> Welcome back!</strong>
+                </div>
+
+
+
+
+
+
+
+
+
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane fade  " id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+          <div id="travelborder" class="card  row  border border-white   mx-auto col-12"
+            style=" border-bottom-right-radius: 30px; border-bottom-left-radius: 30px; background: #163850; color: #ffffff">
+            <div class="row    mx-auto "
+              style="border-bottom-right-radius: 30px; border-bottom-left-radius: 30px; align-items: center; justify-content:center; background: #163850; color: #ffffff">
+
+
+
+
+              <h2 class="text-center"><br>Signing up is fast and easy.</h2>
+
+
+              <form class="form signup-form">
+                <div class="form-group">
+
+                  <input class="form-input" placeholder="Name" type="text" id="name-signup" />
+                </div>
+                <div class="form-group">
+
+                  <input class="form-input" placeholder="Email" type="text" id="email-signup" />
+                </div>
+                <div class="form-group">
+
+                  <input class="form-input" placeholder="Password" type="password" id="password-signup" />
+                </div>
+                <div class="form-group">
+
+                  <input class="form-input" placeholder="Confirm Password" type="password" id="confirm-signup" />
+                </div>
+                <div class="col-12 mt-2 " style="display: flex; justify-content: space-evenly;flex-direction: row;">
+                  <button class="btn btn-outline-light col-4 mt-4 mb-4" type="submit">Sign Up</button>
+                </div>
+                {{!-- this toast appears when something is wrong. relevant js for ALL toasts is in the public login
+                script--}}
+                <div class="toast bg-danger text-white text-center " style="position: absolute; " id="incorrect2"
+                  data-bs-delay="3300">
+
+                  <strong class="me-auto h4 "><i class="bi-exclamation-triangle-fill "></i> Failed to sign up.</strong>
+                </div>
+
+                {{!-- this toast appears when the account was created successfully. relevant js for ALL toasts is in the
+                public
+                login script--}}
+                <div class="toast bg-success text-white text-center " style="position: absolute; " id="asdf2"
+                  data-bs-delay="2200">
+
+                  <strong class="me-auto h4 "><i class="bi-check-circle "></i> Account Created! Welcome!</strong>
+                </div>
+
+              </form>
+
+
+
+
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+  <script src="/js/login.js"></script>

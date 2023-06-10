@@ -1,0 +1,86 @@
+{{!--DEVELOPER NOTE: This page originally featured a lot more hard coding, but was altered to be more of a dynamic template. We hope to improve our stamp book page in a similar way. 
+
+In the original, hard coded version of this page, the CSS on the buttons was meant to be different depending on which tab was open. For example, the Hokkaido page, which has only 3 buttons, should have larger font and more space. Compare this to Chubu, which has 23 regions, and needed 2 columns of buttons and closer spacing. After going from hard coding to this current template style, the buttons changed to the same size and spacing on all pages. 
+
+To achieve the desired look we wanted with the buttons, we added some strings to the constants.js file which allow the buttons to change depending on which region is shown. See line 66 of this file.--}}
+
+<div class="row ms-1 me-1 mt-4">
+
+    <div class="card p-0  nav nav-tabs nav-fill "
+        style="margin:0; display: contents; height: 100%;    background: #576672; color: #ffffff">
+
+        <nav class="  col-md-12  p-0 ">
+            <div class="nav nav-tabs nav-fill p-0 border-0 bg-transparent col-md-12 m-0"
+                style=" background: #576672; color: #ffffff " id="nav-tab" role="tablist">
+                <button class="nav-link active " id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
+                    type="button" role="tab" aria-controls="nav-home" aria-selected="false"
+                    style="border-top-left-radius: 30px; border-top-right-radius: 30px; background: #163850; color: #ffffff;  padding:0; font-size:1.2rem; max-width:4%;"><span
+                        class="long-text"><i class="bi-pin-map " style="font-size: 2rem; "></i></span><span
+                        class="short-text">.</span></button>
+            {{#each regions as |region|}}
+                <button class="nav-link " id="tab-{{region.[0].long}}" data-bs-toggle="tab" data-bs-target="#{{region.[0].long}}-content" type="button" style=" border-top-left-radius: 30px; border-top-right-radius: 30px; background: {{region.[0].background}}; color: #ffffff; font-size:1.2rem; max-width:12%;" role="tab" aria-controls="nav-profile" aria-selected="false">
+                    <span class="long-text">{{region.[0].long}}</span>
+                    <span class="short-text">{{region.[0].short}}</span>
+                </button>
+            {{/each}}
+            </div>
+        </nav>
+
+        <div class="tab-content  " id="nav-tabContent">
+            <div class="tab-pane fade active show  " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+                <div id="map-border" class="card  border border-white p-3   mx-auto"
+                style=" border-bottom-right-radius: 30px; border-bottom-left-radius: 30px; background: #163850; color: #ffffff">
+                    <div class="row    mx-auto "
+                        style="border-bottom-right-radius: 30px; border-bottom-left-radius: 30px; align-items: center; justify-content:center; width:100%; background: #163850; color: #ffffff">
+                        <div class="col-md-5 ">
+                            <h1 class="text-center mt-4 mb-2">日本 Castle Map</h1>
+                            <h3 class="text-center"><br>Each colored area represents a region, and each number marks a castle.</h3>
+                            <h3 class="text-center"><br>Use the tabs above to select a region, then choose a castle to learn more.</h3>
+                        </div>
+
+                        <div class="col-md-6 mt-3 mb-3">
+                            <img src="/images/maps/japanmap0.png"
+                            style="width: 100%; height: 100%; max-width: 2000px; max-height: 2000px;" class="rounded  d-block"
+                            alt="Map of Japan's Castles" />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    {{#each regions as |region|}}
+        <div class="tab-content  " id="nav-tabContent">
+            <div class="tab-pane fade  " id="{{region.[0].long}}-content" role="tabpanel" aria-labelledby="{{region.[0].long}}-map">
+
+                <div id="{{region.[0].long}}-border" class="card  border border-white p-3  mx-auto"
+                style=" border-bottom-right-radius: 30px; border-bottom-left-radius: 30px; background: {{region.[0].background}}; color: #ffffff">
+                   <h1 class="text-center mt-3 p-0 m-0 ">{{region.[0].long}}</h1>
+                   
+                    <div class="row    mx-auto "
+                        style="border-bottom-right-radius: 30px; border-bottom-left-radius: 30px; align-items: center; justify-content:center; width:100%; background: {{region.[0].background}}; color: #ffffff">
+                        <div class="col-md-6 col-md-offset-1 p-0 text-center">
+                            
+                            
+                        {{#each region.[0].castles as |castle|}}
+                            <a href="/castle/{{castle.id}}">
+                                <li class="{{region.[0].li_class}}" style="font-size:{{region.[0].fontsize}} ">{{castle.number}} - {{castle.name}}</li>
+                            </a>
+                        {{/each}}
+                           
+                    
+                        </div>
+                        <div class="col-md-5 mt-3 mb-3">
+                            <img id="mappics" src={{region.[0].map_pic}}
+                            style="width: 100%; height: 100%; max-width: 2000px; max-height: 2000px;" class="rounded  d-block"
+                            alt="Map of Japan's Castles" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+
+    </div>
+</div>
