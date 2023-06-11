@@ -1,13 +1,12 @@
 const express = require('express');
 const routes = require('./controllers');
-const sequelize = require('./config/connection');
+const sequelize = require('./config/connection'); 
 const path = require('path');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const hbs = exphbs.create();
 require('dotenv').config();
-
-const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const sess = {
   secret: process.env.SESSION_SECRET,
@@ -21,15 +20,11 @@ const sess = {
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
 app.use(session(sess));
 
-app.use("/js", express.static(__dirname));
-app.use("/css", express.static(__dirname));
-app.use("/js", express.static(__dirname + "/node_modules/bootstrap/dist/js/")); // redirect JS jQuery
-app.use(
-  "/css",
-  express.static(__dirname + "/node_modules/bootstrap/dist/css/")
-); // redirect CSS bootstrap
+app.use("/js", express.static(path.join(__dirname, "node_modules/bootstrap/dist/js")));
+app.use("/css", express.static(path.join(__dirname, "node_modules/bootstrap/dist/css")));
 
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
