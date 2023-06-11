@@ -1,24 +1,8 @@
 {
-  "name": "castle-project",
+  "name": "mvc-tech-blog",
   "version": "1.0.0",
-  "description": "When visiting one of Japan's famous castles, you can apply a unique rubber stamp to your notebook. Use this application to prepare for a trip, read and write reviews, and learn fun facts on your journey to collect all 100 stamps.",
+  "description": "## Description A CMS-style blog site where developers can publish their blog posts and comment on other developers’ posts. Follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.",
   "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "seed": "node seeds/seed.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tcunningham203/100-famous-castles.git"
-  },
-  "keywords": [],
-  "author": "Tim Cunningham, Frank Olmsted, Lauren Sullivan, Sudarshan Samaddar",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/tcunningham203/100-famous-castles/issues"
-  },
-  "homepage": "https://github.com/tcunningham203/100-famous-castles#readme",
   "dependencies": {
     "bcrypt": "^5.0.0",
     "bootstrap": "^5.2.3",
@@ -35,5 +19,16 @@
   },
   "devDependencies": {
     "parcel": "^2.8.3"
-  }
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tcunningham203/MVC-Tech-Blog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tcunningham203/MVC-Tech-Blog/issues"
+  },
+  "homepage": "https://github.com/tcunningham203/MVC-Tech-Blog#readme"
 }
