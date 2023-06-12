@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post } = require('../../db/models');
+const { Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // Dashboard route

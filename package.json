@@ -4,18 +4,18 @@
   "description": "## Description A CMS-style blog site where developers can publish their blog posts and comment on other developers’ posts. Follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.",
   "main": "server.js",
   "dependencies": {
-    "bcrypt": "^5.0.0",
+    "bcrypt": "^5.1.0",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.5",
-    "connect-session-sequelize": "^7.0.4",
-    "dotenv": "^8.2.0",
+    "connect-session-sequelize": "^7.1.7",
+    "dotenv": "^16.1.4",
     "express": "^4.17.1",
-    "express-handlebars": "^5.2.0",
-    "express-session": "^1.17.1",
+    "express-handlebars": "^7.0.7",
+    "express-session": "^1.17.3",
     "jquery": "^3.6.4",
-    "mysql2": "^2.2.5",
+    "mysql2": "^3.3.4",
     "popper.js": "^1.16.1",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.32.0"
   },
   "devDependencies": {
     "parcel": "^2.8.3"

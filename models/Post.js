@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../connection');
+const sequelize = require('../config/connection');
 
-class Comment extends Model {}
+class Post extends Model {}
 
-Comment.init(
+Post.init(
   {
     // Model attributes
     id: {
@@ -11,6 +11,10 @@ Comment.init(
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
+    },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     content: {
       type: DataTypes.TEXT,
@@ -24,14 +28,6 @@ Comment.init(
         key: 'id',
       },
     },
-    post_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'post',
-        key: 'id',
-      },
-    },
   },
   {
     // Model options
@@ -39,8 +35,8 @@ Comment.init(
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'comment',
+    modelName: 'post',
   }
 );
 
-module.exports = Comment;
+module.exports = Post;
