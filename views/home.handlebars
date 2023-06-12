@@ -1,13 +1,4 @@
-<!-- views/home.handlebars -->
 
-<!-- Include the main layout -->
-{{> layouts/main}}
-
-<!-- Set the title of the page -->
-{{#set 'title'}}Home{{/set}}
-
-<!-- Begin the content section -->
-{{#content 'body'}}
   <div class="container">
     <h2>Welcome to the Tech Blog</h2>
     
@@ -17,8 +8,8 @@
         {{#each posts}}
           <li class="post-item">
             <h3>{{title}}</h3>
-            <p>{{formatDate createdAt}}</p>
-            <p>{{truncateText content 200}}</p>
+            <p>{{createdAt}}</p>
+         
             <a href="/post/{{id}}">Read More</a>
           </li>
         {{/each}}
@@ -27,4 +18,3 @@
       <p>No blog posts found.</p>
     {{/if}}
   </div>
-{{/content}}

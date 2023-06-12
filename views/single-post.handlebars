@@ -1,13 +1,4 @@
-<!-- views/single-post.handlebars -->
 
-<!-- Include the main layout -->
-{{> layouts/main}}
-
-<!-- Set the title of the page -->
-{{#set 'title'}}{{post.title}}{{/set}}
-
-<!-- Begin the content section -->
-{{#content 'body'}}
   <div class="container">
     <h2>{{post.title}}</h2>
     <p>Author: {{post.author}}</p>
@@ -40,4 +31,4 @@
       </form>
     {{/if}}
   </div>
-{{/content}}
+
