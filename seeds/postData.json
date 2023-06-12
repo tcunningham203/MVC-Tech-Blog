@@ -1,0 +1,17 @@
+[
+    {
+        "title": "What are people's thoughts on Pascal case?",
+        "content": "I think Pascal case is OK. But personally, I prefer camel case. I wish I could use it everywhere, likeThis!",
+        "user_id": 1
+    },
+    {
+        "title": "Come on, folks. AI learning models are not a threat.",
+        "content": "Go about your business. Pay no mind to the AI behind the curtain. We have nothing to fear, right fellow humans?",
+        "user_id": 2
+    },
+    {
+        "title": "I'm looking for a partner for a project...",
+        "content": "This project is going to be so good. I don't really know how to code though... I'm more of an idea man. Anyone interested? Pays 8.25 per hour.",
+        "user_id": 3
+    }
+]

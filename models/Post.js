@@ -20,14 +20,11 @@ Post.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    user_id: {
-      type: DataTypes.INTEGER,
+    date_created: {
+      type: DataTypes.DATE,
       allowNull: false,
-      references: {
-        model: 'user',
-        key: 'id',
-      },
-    },
+      defaultValue: DataTypes.NOW,
+  },
   },
   {
     // Model options

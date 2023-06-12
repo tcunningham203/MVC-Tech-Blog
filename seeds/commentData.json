@@ -1,0 +1,32 @@
+[
+    {
+        "content": "Pascal? More like passé.",
+        "user_id": 2,
+        "post_id": 1
+    },
+    {
+        "content": "A case named after an animal? What's next, baboon case? whale case? Or what about like, snake case? HA! Like that'll ever happen.",
+        "user_id": 3,
+        "post_id": 1
+    },
+    {
+        "content": "Nice try, robot. Mind telling me how many buses you see in this picture?",
+        "user_id": 1,
+        "post_id": 2
+    },
+    {
+        "content": "AI? I thought it was OK. I'd take a bullet for Steven Spielberg, but that film was a bit slow for my tastes.",
+        "user_id": 3,
+        "post_id": 2
+    },
+    {
+        "content": "Add a few zeros and you got yourself a deal.",
+        "user_id": 1,
+        "post_id": 3
+    },
+    {
+        "content": "How about you tell me the idea, and then I'll generate the code? I promise I won't steal your idea. I swear on my human mother- I- I mean, mother.",
+        "user_id": 2,
+        "post_id": 3
+    }
+]
