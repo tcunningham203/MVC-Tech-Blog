@@ -1,1 +1,43 @@
-{{!-- code here --}}
+<!-- views/dashboard.handlebars -->
+
+<!-- Include the main layout -->
+{{> layouts/main}}
+
+<!-- Set the title of the page -->
+{{#set 'title'}}Dashboard{{/set}}
+
+<!-- Begin the content section -->
+{{#content 'body'}}
+  <div class="container">
+    <h2>Welcome, {{user.username}}!</h2>
+    <h3>Your Blog Posts</h3>
+
+    {{#if posts}}
+      <ul class="list-group">
+        {{#each posts}}
+          <li class="list-group-item">
+            <a href="/post/{{this.id}}">{{this.title}}</a>
+            <button class="btn btn-danger btn-sm float-right" onclick="deletePost({{this.id}})">Delete</button>
+          </li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p>No posts yet. <a href="/create">Create a new post</a>.</p>
+    {{/if}}
+
+    <hr>
+
+    <h3>Create a New Post</h3>
+    <form action="/create" method="POST">
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+      </div>
+      <div class="form-group">
+        <label for="content">Content:</label>
+        <textarea name="content" id="content" rows="5" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+  </div>
+{{/content}}

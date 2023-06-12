@@ -1,8 +1,6 @@
-const express = require('express');
-const router = express.Router();
-
-// Import the models
+const router = require('express').Router();
 const { Post, User, Comment } = require('../db/models');
+const withAuth = require('../utils/auth');
 
 // Homepage route
 router.get('/', async (req, res) => {
@@ -23,8 +21,5 @@ router.get('/', async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 });
-
-// Other routes related to the homepage
-// ...
 
 module.exports = router;

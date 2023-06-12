@@ -1,1 +1,43 @@
-{{!-- code here --}}
+<!-- views/single-post.handlebars -->
+
+<!-- Include the main layout -->
+{{> layouts/main}}
+
+<!-- Set the title of the page -->
+{{#set 'title'}}{{post.title}}{{/set}}
+
+<!-- Begin the content section -->
+{{#content 'body'}}
+  <div class="container">
+    <h2>{{post.title}}</h2>
+    <p>Author: {{post.author}}</p>
+    <p>Date: {{formatDate post.createdAt}}</p>
+    <p>{{post.content}}</p>
+
+    <hr>
+
+    <h3>Comments</h3>
+    {{#if comments}}
+      {{#each comments}}
+        <div class="comment">
+          <p>{{this.username}} - {{formatDate this.createdAt}}</p>
+          <p>{{this.comment}}</p>
+        </div>
+      {{/each}}
+    {{else}}
+      <p>No comments yet.</p>
+    {{/if}}
+
+    {{#if authenticated}}
+      <hr>
+
+      <h3>Add a Comment</h3>
+      <form action="/comment/{{post.id}}" method="POST">
+        <div class="form-group">
+          <textarea name="comment" id="comment" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    {{/if}}
+  </div>
+{{/content}}

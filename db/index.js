@@ -1,17 +1,14 @@
-const Sequelize = require('sequelize');
+const { Sequelize } = require('sequelize');
 const config = require('../config/config.json');
 const env = process.env.NODE_ENV || 'development';
 const sequelize = new Sequelize(config[env]);
 
 const db = {};
 
-db.Sequelize = Sequelize;
-db.sequelize = sequelize;
-
 // Load models
-db.User = require('./models/User')(sequelize, Sequelize);
-db.Post = require('./models/Post')(sequelize, Sequelize);
-db.Comment = require('./models/Comment')(sequelize, Sequelize);
+db.User = require('./models/User');
+db.Post = require('./models/Post');
+db.Comment = require('./models/Comment');
 
 // Define model associations
 db.User.hasMany(db.Post, {

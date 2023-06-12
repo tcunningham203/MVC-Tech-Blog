@@ -1,1 +1,34 @@
-{{!-- code here --}}
+<!-- views/signup.handlebars -->
+
+<!-- Include the main layout -->
+{{> layouts/main}}
+
+<!-- Set the title of the page -->
+{{#set 'title'}}Sign Up{{/set}}
+
+<!-- Begin the content section -->
+{{#content 'body'}}
+  <div class="container">
+    <h2>Sign Up</h2>
+    
+    <!-- Display signup form -->
+    <form action="/signup" method="POST">
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+    
+    <!-- Link to the login page -->
+    <p>Already have an account? <a href="/login">Log in</a></p>
+  </div>
+{{/content}}

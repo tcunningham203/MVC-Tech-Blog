@@ -20,7 +20,10 @@
   "devDependencies": {
     "parcel": "^2.8.3"
   },
-
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node seeds/seed.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tcunningham203/MVC-Tech-Blog.git"
