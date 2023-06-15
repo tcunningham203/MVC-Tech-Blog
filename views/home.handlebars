@@ -1,20 +1,22 @@
+<div class="card p-3 m-4 bg-dark-subtle text-center rounded">
+  <h2>Welcome to the blog! Choose a topic to join the conversation.</h2>
+</div>
+{{#each posts as |post|}}
+<a href="/comments/{{post.id}}">
 
-  <div class="container">
-    <h2>Welcome to the Tech Blog</h2>
-    
-    <!-- Check if there are any blog posts to display -->
-    {{#if posts}}
-      <ul class="post-list">
-        {{#each posts}}
-          <li class="post-item">
-            <h3>{{title}}</h3>
-            <p>{{createdAt}}</p>
-         
-            <a href="/post/{{id}}">Read More</a>
-          </li>
-        {{/each}}
-      </ul>
-    {{else}}
-      <p>No blog posts found.</p>
-    {{/if}}
+  <div class="card p-3 m-4 rounded bg-dark-subtle ">
+    <div class="row card-header bg-dark-subtle ">
+      <div class="card-title h4 col-lg-8 text-start">
+        {{post.title}}
+      </div>
+      <div class="card-title col-lg-4 text-end">Posted by {{user.username}} on {{format_date post.date_created}}
+      </div>
+    </div>
+    <div class="row card-header bg-light ">
+    <div class="card text-start col m-0 pt-3 pb-3 ">
+      {{post.content}}
+    </div>
+    </div>
   </div>
+</a>
+{{/each}}

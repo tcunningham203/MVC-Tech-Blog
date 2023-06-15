@@ -1,6 +1,3 @@
-{{!-- DEVELOPER NOTE: All other handlebars pages feature the content on this page. The main thing this page has is the nav bar and the background color. When not logged in, the nav bar displays the title only. Once a user has logged in, buttons are added to the nav bar. This extends to certain js files as well, featured at the bottom of this page.
-
-This site uses media queries to create a good user experience for mobile users. On smaller screens, a "hamburger" button replaces the standard nav bar. --}}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,15 +6,14 @@ This site uses media queries to create a good user experience for mobile users. 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MVC Tech Blog</title>
-    <link rel="stylesheet" href="/css/jass.css">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/bootstrap.min.css.map" rel="stylesheet">
-    <link href="/css/bootstrap-icons.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/css/style.css">
+    
 </head>
 
 
-<body class=" mb-2 text-grey" style="background-color: #576672; color: #cecece;">
+<body class=" mb-2 text-grey" style="background-color: #454058; color: #ffffff;">
       {{> navbar}}
     <main class="container container-fluid mt-2 ">
 
@@ -34,19 +30,11 @@ This site uses media queries to create a good user experience for mobile users. 
     </main>
     {{#if logged_in}}
     <script src="/js/logout.js"></script>
-    <script src="/js/pages.js"></script>
-
-    
-
-    <script src="/js/bookflip.js"></script>
-    <script src="/js/addHideStamp.js"></script>
-    <script src="/js/saveDeleteStamp.js"></script>
-    
 
     {{/if}}
-    <script src="/js/jquery.js" type="module"></script>
-    <script src="/js/umd/popper.min.js"></script>
-
+  
+  
+    <script src="/js/login.js"></script>
     <script src="/js/bootstrap.bundle.min.js" defer type="module"></script>
     <script src="/js/waitforload.js"></script>
   {{> footer}}

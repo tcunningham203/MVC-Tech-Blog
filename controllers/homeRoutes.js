@@ -5,16 +5,19 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     // Fetch all blog posts from the database
-    const posts = await Post.findAll({
+    const postFetch = await Post.findAll({
       include: [
         { model: User, attributes: ['username'] },
         { model: Comment, include: [{ model: User, attributes: ['username'] }] }
       ],
       order: [['createdAt', 'DESC']]
     });
-
+    const posts = postFetch.map((post) => post.get({ plain: true }));
     // Render the homepage view with the fetched blog posts
-    res.render('home', { posts });
+    res.render("home", {
+      posts,
+      logged_in: req.session.logged_in,
+  });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: 'Internal server error' });
