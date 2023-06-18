@@ -1,34 +1,46 @@
-
-  <div class="container">
-    <h2>{{post.title}}</h2>
-    <p>Author: {{post.author}}</p>
-    <p>Date: {{formatDate post.createdAt}}</p>
-    <p>{{post.content}}</p>
-
-    <hr>
-
-    <h3>Comments</h3>
-    {{#if comments}}
-      {{#each comments as |comment|}}
-        <div class="comment">
-          <p>{{this.username}} - {{formatDate this.createdAt}}</p>
-          <p>{{this.comment}}</p>
-        </div>
-      {{/each}}
-    {{else}}
-      <p>No comments yet.</p>
-    {{/if}}
-
-    {{#if authenticated}}
-      <hr>
-
-      <h3>Add a Comment</h3>
-      <form action="/comment/{{post.id}}" method="POST">
-        <div class="form-group">
-          <textarea name="comment" id="comment" rows="3" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    {{/if}}
+<div class="card p-3 m-4 rounded bg-dark-subtle ">
+  <div class="row card-header bg-dark-subtle ">
+    <div class="card-title h3 col-lg-8 text-start">
+      {{title}}
+    </div>
+    <div class="card-title col-lg-4 text-end">Posted by {{user.username}} on {{format_date date_created}}
+    </div>
+  </div>
+  <div class="row card-header bg-light ">
+    <div class="card text-start col m-0 pt-3 pb-3 ">
+      {{content}}
+    </div>
   </div>
 
+  <div class="row">
+    <div class="col-6 mt-2 " style="display: flex;justify-content: space-evenly; flex-direction: row;">
+      <a href="/add-comment/{{id}}" class="btn btn-outline-dark col-9 mt-2 " type="button">Add Comment</a>
+    </div>
+    <div class="col-6 mt-2 " style="display: flex;justify-content: space-evenly; flex-direction: row;">
+      <a href="/" id="signupbtn" class="btn btn-outline-dark col-9 mt-2 ">Go Back</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="card p-3 m-4 rounded bg-dark-subtle ">
+  <div class="row card-header bg-dark-subtle ">
+    <div class="card-title h5 col-lg-8 text-start">
+      Here's what others have to say...
+    </div>
+
+  </div>
+  <br>
+  {{#each comments as |comment|}}
+
+
+  <div class="row  card ">
+    <div class=" text-start col m-0 p-3">
+      {{comment.content}}
+    </div>
+    <div class="card-title text-end p-1">{{user.username}} | {{format_date date_created}}
+    </div>
+  </div>
+  <br>
+  {{/each}}
+</div>

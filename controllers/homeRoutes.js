@@ -54,10 +54,9 @@ router.get('/signup', async (req, res) => {
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
     // Fetch posts 
-    const dashData = await Post.findAll({
-      where: { user_id: req.session.user_id },
-      include: [{ model: User, attributes: ['username'] }],
-      order: [['createdAt', 'DESC']]
+    const dashData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Post }],
     });
     const posts = dashData.get({ plain: true });
     // Render dashboard view 
@@ -103,9 +102,8 @@ router.get('/update-post/:id', async (req, res) => {
 });
 
 // Single post route
-router.get('/post/:id', withAuth, async (req, res) => {
+router.get('/post/:id', async (req, res) => {
   try {
-    // Fetch post by ID 
     const posts = await Post.findByPk(req.params.id, {
       include: [
         { model: User, attributes: ['username'] },
@@ -113,8 +111,9 @@ router.get('/post/:id', withAuth, async (req, res) => {
       ]
     });
 
+    const post = posts.get({ plain: true });
     // Render single-post view 
-    res.render('single-post', { ...posts, logged_in: req.session.logged_in });
+    res.render('single-post', { ...post, logged_in: req.session.logged_in });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: 'Internal server error' });

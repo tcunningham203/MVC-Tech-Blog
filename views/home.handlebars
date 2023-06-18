@@ -1,10 +1,11 @@
 <div class="card p-3 m-4 bg-dark-subtle text-center rounded">
   <h2>Welcome to the blog! Choose a topic to join the conversation.</h2>
 </div>
+    <hr>
 {{#each posts as |post|}}
 <a href="/post/{{post.id}}">
 
-  <div class="card p-3 m-4 rounded bg-dark-subtle ">
+  <div class="card pt-3 ps-3 pe-3 m-4 rounded bg-dark-subtle ">
     <div class="row card-header bg-dark-subtle ">
       <div class="card-title h4 col-lg-8 text-start">
         {{post.title}}
