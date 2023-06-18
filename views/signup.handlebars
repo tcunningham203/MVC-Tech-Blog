@@ -1,25 +1,69 @@
+    {{!-- this toast appears when something is wrong. relevant js for ALL toasts is in the public login
+                script--}}
+                <div class="toast bg-danger text-white text-center " style="position: absolute; " id="incorrect2"
+                  data-bs-delay="3300">
 
-  <div class="container">
-    <h2>Sign Up</h2>
-    
-    <!-- Display signup form -->
-    <form action="/signup" method="POST">
-      <div class="form-group">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
+                  <strong class="me-auto h4 "><i class="bi-exclamation-triangle-fill "></i> Failed to sign up.</strong>
+                </div>
+
+                {{!-- this toast appears when the account was created successfully. relevant js for ALL toasts is in the
+                public
+                login script--}}
+                <div class="toast bg-success text-white text-center " style="position: absolute; " id="asdf2"
+                  data-bs-delay="2200">
+
+                  <strong class="me-auto h4 "><i class="bi-check-circle "></i> Account Created! Welcome!</strong>
+                </div>
+<br>
+<div class="row " style="justify-content:space-evenly">
+  <div class="col-lg-6 mt-5 ">
+    <div class="card  border border-white mx-auto " style=" border-radius: 30px;  background: #2f1133; color: #ffffff">
+      <div class=" row mx-auto mb-3" 
+        style="border-radius: 30px;  align-items: center; justify-content:center; background: #2f1133; color: #ffffff">
+        <h2 class="text-center"><br>Join our community.</h2>
+        <form class="signup-form p-3 " >
+          <div class="form-group col-12 mx-auto mt-3" >
+            
+            <input type="text" class="form-control" id="usernamesignup1" 
+              placeholder="Username">
+
+          </div>
+          <div class="row">
+          <div class="form-group col-lg-6 mx-auto mt-3">
+            
+            <input type="password" class="form-control" id="passwordsignup1" placeholder="Password">
+          </div>
+ <div class="form-group col-lg-6 mx-auto mt-3">
+            
+            <input type="password" class="form-control" id="passwordsignup2" placeholder="Confirm Password">
+          </div>
+
+       </div>
+
+     
+
+
+
+        <div class="row">
+          <div class="col-lg-6 mt-2 " style="display: flex;justify-content: space-evenly; flex-direction: row;">
+
+
+
+            <button class="btn btn-outline-light col-10 mt-2 " type="submit">Sign Up</button>
+          </div>
+          <div class="col-lg-6 mt-2 " style="display: flex;justify-content: space-evenly; flex-direction: row;">
+
+
+
+            <a href="/login" id="loginbtn" class="btn btn-outline-light col-10 mt-2 ">Log In</a>
+          </div>
+        </div>
+ </form>
+
       </div>
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Sign Up</button>
-    </form>
-    
-    <!-- Link to the login page -->
-    <p>Already have an account? <a href="/login">Log in</a></p>
+    </div>
   </div>
+</div>
+ 
 
+           <script src="/js/signup.js"></script>

@@ -5,6 +5,7 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const helpers = require('./utils/helpers');
 const session = require('express-session');
+
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const hbs = exphbs.create({ helpers });
 require('dotenv').config();
@@ -24,6 +25,8 @@ const PORT = process.env.PORT || 3001;
 
 app.use(session(sess));
 
+app.use('/js', express.static(path.join(__dirname, 'node_modules/popper.js/dist')));
+app.use('/js', express.static(path.join(__dirname, 'node_modules/jquery/dist')));
 app.use("/js", express.static(path.join(__dirname, "node_modules/bootstrap/dist/js")));
 app.use("/css", express.static(path.join(__dirname, "node_modules/bootstrap/dist/css")));
 

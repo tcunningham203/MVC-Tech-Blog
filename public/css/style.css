@@ -44,7 +44,7 @@ a {
   position: absolute;
   left: 8px;
   width: 16px;
-  background: #ffffff;
+  background: #454058;
   animation: spinner-animation 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
 }
 
@@ -75,12 +75,10 @@ a {
   }
 }
 
-.form.signup-form {
-  min-height: 430px;
-}
 
-.form.login-form {
-  min-height: 430px;
+
+#daform {
+  min-height: 200px;
 }
 
 .card {
@@ -90,305 +88,13 @@ a {
   border-radius: 0;
 }
 
-#map-border {
-  border-top: 1px solid rgb(255, 255, 255);
-  position: relative;
-}
 
-#map-border:after {
-  padding: 0;
-  margin: 0;
-  display: block; 
-  content: "";
-  width: 3.9%;
-  height: 1.1px;
-  background-color: #163850;
-  position: absolute;
-  left: 0;
-  top: -1px;
-}
-
-#Hokkaido-border {
-  border-top: 1px solid rgb(255, 255, 255);
-  position: relative;
-}
-
-#Hokkaido-border:before {
-  padding: 0;
-  margin: 0;
-  display: block; 
-  content: "";
-  width: 16%;
-  height: 1.1px;
-  background-color: #2c3e44;
-  position: absolute;
-  left: 0;
-  top: -1px;
-}
-
-#Hokkaido-border:after {
-  padding: 0;
-  margin: 0;
-  display: block; 
-  content: "";
-  width: 4%;
-  height: 1.1px;
-  background-color: #ffffff;
-  position: absolute;
-  left: 0;
-  top: -1px;
-}
-
-#Tohoku-border {
-  border-top: 1px solid rgb(255, 255, 255);
-  position: relative;
-}
-
-#Tohoku-border:before {
-  padding: 0;
-  margin: 0;
-  display: block; 
-  content: "";
-  width: 28%;
-  height: 1.1px;
-  background-color: #1d283b;
-  position: absolute;
-  left: 0;
-  top: -1px;
-}
-
-#Tohoku-border:after {
-  padding: 0;
-  margin: 0;
-  display: block; 
-  content: "";
-  width: 16%;
-  height: 1.1px;
-  background-color: #ffffff;
-  position: absolute;
-  left: 0;
-  top: -1px;
-}
-
-#Kanto-border {
-  border-top: 1px solid rgb(255, 255, 255);
-  position: relative;
-}
-
-#Kanto-border:before {
-  padding: 0;
-  margin: 0;
-  display: block; 
-  content: "";
-  width: 40%;
-  height: 1.1px;
-  background-color: #382844;
-  position: absolute;
-  left: 0;
-  top: -1px;
-}
-
-#Kanto-border:after {
-  padding: 0;
-  margin: 0;
-  display: block; 
-  content: "";
-  width: 28%;
-  height: 1.1px;
-  background-color: #ffffff;
-  position: absolute;
-  left: 0;
-  top: -1px;
-}
-
-#Chubu-border {
-  border-top: 1px solid rgb(255, 255, 255);
-  position: relative;
-}
-
-#Chubu-border:before {
-  padding: 0;
-  margin: 0;
-  display: block; 
-  content: "";
-  width: 52%;
-  height: 1.1px;
-  background-color: #3f121c;
-  position: absolute;
-  left: 0;
-  top: -1px;
-}
-
-#Chubu-border:after {
-  padding: 0;
-  margin: 0;
-  display: block; 
-  content: "";
-  width: 40%;
-  height: 1.1px;
-  background-color: #ffffff;
-  position: absolute;
-  left: 0;
-  top: -1px;
-}
-
-#Kansai-border {
-  border-top: 1px solid rgb(255, 255, 255);
-  position: relative;
-}
-
-#Kansai-border:before {
-  padding: 0;
-  margin: 0;
-  display: block; 
-  content: "";
-  width: 64%;
-  height: 1.1px;
-  background-color: #5e4c32;
-  position: absolute;
-  left: 0;
-  top: -1px;
-}
-
-#Kansai-border:after {
-  padding: 0;
-  margin: 0;
-  display: block; 
-  content: "";
-  width: 52.1%;
-  height: 1.1px;
-  background-color: #ffffff;
-  position: absolute;
-  left: 0;
-  top: -1px;
-}
-
-#Chugoku-border {
-  border-top: 1px solid rgb(255, 255, 255);
-  position: relative;
-}
-
-#Chugoku-border:before {
-  padding: 0;
-  margin: 0;
-  display: block; 
-  content: "";
-  width: 76%;
-  height: 1.1px;
-  background-color: #302f1a;
-  position: absolute;
-  left: 0;
-  top: -1px;
-}
-
-#Chugoku-border:after {
-  padding: 0;
-  margin: 0;
-  display: block; 
-  content: "";
-  width: 64.1%;
-  height: 1.1px;
-  background-color: #ffffff;
-  position: absolute;
-  left: 0;
-  top: -1px;
-}
-
-#Shikoku-border {
-  border-top: 1px solid rgb(255, 255, 255);
-  position: relative;
-}
-
-#Shikoku-border:before {
-  padding: 0;
-  margin: 0;
-  display: block; 
-  content: "";
-  width: 88%;
-  height: 1.1px;
-  background-color: #0c2513;
-  position: absolute;
-  left: 0;
-  top: -1px;
-}
-
-#Shikoku-border:after {
-  padding: 0;
-  margin: 0;
-  display: block; 
-  content: "";
-  width: 76.1%;
-  height: 1.1px;
-  background-color: #ffffff;
-  position: absolute;
-  left: 0;
-  top: -1px;
-}
-
-#Kyushu-border {
-  border-top: 1px solid rgb(255, 255, 255);
-  position: relative;
-}
-
-#Kyushu-border:after {
-  padding: 0;
-  margin: 0;
-  display: block; 
-  content: "";
-  width: 11.9%;
-  height: 1.1px;
-  background-color: #3d4639;
-  position: absolute;
-  right: 0;
-  top: -1px;
-}
-
-#travelborder {
-  border-top: 1px solid rgb(255, 255, 255);
-  position: relative;
-}
-#travelborder:after {
-  padding: 0;
-  margin: 0;
-  display: block; 
-  content: "";
-  width: 50%;
-  height: 1.1px;
-  background-color: #163850;
-  position: absolute;
-  right: 0;
-  top: -1px;
-}
-
-#historyborder {
-  border-top: 1px solid rgb(255, 255, 255);
-  position: relative;
-}
-#historyborder:after {
-  padding: 0;
-  margin: 0;
-  display: block; 
-  content: "";
-  width: 50%;
-  height: 1.1px;
-  background-color: #163850;
-  position: absolute;
-  left: 0;
-  top: -1px;
-}
 
 li {
   padding: 8px;
 }
 
-.btn-circle.btn-xl {
-  width: 70px;
-  height: 70px;
-  padding: 10px 16px;
-  font-size: 24px;
-  line-height: 1.33;
-  border-radius: 35px;
-}
+
 
 .card img {
   height: 10em;
@@ -398,187 +104,9 @@ li {
   box-sizing: border-box;
 }
 
-.book-section {
-  height: 70vh;
-  width: 100%;
-  padding: 10px 0;
-  text-align: center;
-}
 
-.book-section > .container {
-  height: 100%;
-  width: 100%;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 2%;
-  margin-bottom: 30px;
-  perspective: 3200px;
-}
 
-.container > .right {
-  position: absolute;
-  height: 100%;
-  width: 50%;
-  transition: 0.7s ease-in-out;
-  transform-style: preserve-3d;
-}
 
-.book-section > .container > .right {
-  right: 0;
-  transform-origin: left;
-  border-radius: 10px 0 0 10px;
-}
-
-.right > figure.front,
-.right > figure.back {
-  margin: 0;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 1;
-  background-size: 200%;
-  background-repeat: no-repeat;
-  backface-visibility: hidden;
-  background-color: white;
-  overflow: hidden;
-}
-
-.right > figure.front {
-  background-position: right;
-  border-radius: 0 10px 10px 0;
-  box-shadow: 2px 2px 15px -2px rgba(0, 0, 0, 0.2);
-}
-
-.right > figure.back {
-  background-position: left;
-  border-radius: 10px 0 0 10px;
-  box-shadow: -2px 2px 15px -2px rgba(0, 0, 0, 0.2);
-  transform: rotateY(180deg);
-}
-
-.flip {
-  transform: rotateY(-180deg);
-}
-
-.flip::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-  border-radius: 0 10px 10px 0;
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.front#cover,
-.back#back-cover {
-  background-color: #eedebb;
-  display: grid;
-  justify-content: center;
-  align-content: space-evenly;
-}
-
-.stamp-box.card-text.border.border-dark {
-  min-height: 163px;
-}
-
-.puff-in-center {
-  -webkit-animation: puff-in-center 0.6s cubic-bezier(0.755, 0.05, 0.855, 0.06)
-    both;
-  animation: puff-in-center 0.6s cubic-bezier(0.755, 0.05, 0.855, 0.06) both;
-}
-/* ----------------------------------------------
- * Generated by Animista on 2023-5-5 20:3:22
- * Licensed under FreeBSD License.
- * See http://animista.net/license for more info. 
- * w: http://animista.net, t: @cssanimista
- * ---------------------------------------------- */
-
-/**
- * ----------------------------------------
- * animation puff-in-center
- * ----------------------------------------
- */
-@-webkit-keyframes puff-in-center {
-  0% {
-    -webkit-transform: scale(2);
-    transform: scale(2);
-    -webkit-filter: blur(4px);
-    filter: blur(4px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    -webkit-filter: blur(0px);
-    filter: blur(0px);
-    opacity: 1;
-  }
-}
-@keyframes puff-in-center {
-  0% {
-    -webkit-transform: scale(2);
-    transform: scale(2);
-    -webkit-filter: blur(4px);
-    filter: blur(4px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    -webkit-filter: blur(0px);
-    filter: blur(0px);
-    opacity: 1;
-  }
-}
-
-.fade-out {
-  -webkit-animation: fade-out 2s linear both;
-  animation: fade-out 2s linear both;
-}
-/* ----------------------------------------------
- * Generated by Animista on 2023-5-5 20:13:50
- * Licensed under FreeBSD License.
- * See http://animista.net/license for more info. 
- * w: http://animista.net, t: @cssanimista
- * ---------------------------------------------- */
-
-/**
- * ----------------------------------------
- * animation fade-out
- * ----------------------------------------
- */
-@-webkit-keyframes fade-out {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@keyframes fade-out {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-.arrowssmall {
-  display: none;
-}
-
-.arrowsbig {
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: row;
-}
 
 .hidden {
   display: none;
@@ -606,13 +134,6 @@ li {
   }
 }
 
-img#stampeedo {
-  width: 90%;
-  height: auto;
-  max-width: 225px;
-  max-height: 225px;
-  z-index: 2;
-}
 
 @media (max-width: 1444px) {
   .book-section {
@@ -630,23 +151,7 @@ img#stampeedo {
 }
 
 @media (max-width: 991px) {
-  .arrowssmall {
-    display: flex;
-    justify-content: space-evenly;
 
-    flex-direction: row;
-  }
-
-  .arrowsbig {
-    display: none;
-  }
-
-  .stamp-box.card-text.border.border-dark {
-    min-height: 50px;
-    max-height: 50px;
-    min-width: 50px;
-    max-width: 50px;
-  }
 
   .card img {
     width: auto;
@@ -657,103 +162,8 @@ img#stampeedo {
     height: 3em;
   }
 
-  .insidecoversmall.text-center.p-5 {
-    padding: 0 !important;
-    margin: 0;
-  }
 
-  .book-section {
-    height: 550px;
-    width: 100%;
 
-    padding: 0;
-    text-align: center;
-  }
-
-  .book-section > .container {
-    height: 100%;
-    width: 100%;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 2%;
-    margin: 0;
-    perspective: 3200px;
-    align-items: center;
-  }
-
-  .container > .right {
-    position: absolute;
-    height: 100%;
-    width: 50%;
-    transition: 0.7s ease-in-out;
-    transform-style: preserve-3d;
-  }
-
-  .book-section > .container > .right {
-    right: 0;
-    transform-origin: left;
-    border-radius: 10px 0 0 10px;
-  }
-
-  .right > figure.front,
-  .right > figure.back {
-    margin: 0;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 1;
-    background-size: 200%;
-    background-repeat: no-repeat;
-    backface-visibility: hidden;
-    background-color: white;
-    overflow: hidden;
-  }
-
-  .right > figure.front {
-    background-position: right;
-    border-radius: 0 10px 10px 0;
-    box-shadow: 2px 2px 15px -2px rgba(0, 0, 0, 0.2);
-  }
-
-  .right > figure.back {
-    background-position: left;
-    border-radius: 10px 0 0 10px;
-    box-shadow: -2px 2px 15px -2px rgba(0, 0, 0, 0.2);
-    transform: rotateY(180deg);
-  }
-
-  .flip {
-    transform: rotateY(-180deg);
-  }
-
-  .flip::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-    border-radius: 0 10px 10px 0;
-    background-color: rgba(0, 0, 0, 0.1);
-  }
-
-  .front#cover,
-  .back#back-cover {
-    background-color: #eedebb;
-    display: grid;
-    justify-content: center;
-    align-content: space-evenly;
-  }
-
-  .castlepagefix {
-    margin: 0;
-    padding: 0;
-    margin-top: 15px;
-  }
 
   .smallscreenborders {
     display: contents;
@@ -763,13 +173,6 @@ img#stampeedo {
     --bs-gutter-x: 0rem;
   }
 
-  .big-book {
-    display: none;
-  }
-  
-  .small-book {
-    display: inline-block;
-  }
 }
 
 .toast {
@@ -777,6 +180,6 @@ img#stampeedo {
   position: fixed;
   transform: translate(-50%, 0px);
   z-index: 9999;
-  width: 70%;
+  width: 500px;
   padding: 10px;
 }

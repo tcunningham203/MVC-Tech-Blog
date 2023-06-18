@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // Hide the page content initially
   pageWrapper.style.opacity = '0';
 
-  // Set a minimum duration of 0.4 seconds for the spinner animation
+  
   const minimumDuration = 800; // milliseconds
 
   // Variable to track when the minimum duration has elapsed
