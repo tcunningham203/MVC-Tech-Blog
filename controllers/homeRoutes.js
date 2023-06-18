@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
+// Homepage route
 router.get('/', async (req, res) => {
   try {
     // Fetch all blog posts from the database
@@ -13,48 +14,126 @@ router.get('/', async (req, res) => {
       order: [['createdAt', 'DESC']]
     });
     const posts = postFetch.map((post) => post.get({ plain: true }));
-    // Render the homepage view with the fetched blog posts
-    res.render("home", {
-      posts,
-      logged_in: req.session.logged_in,
-  });
+    // Render the homepage 
+    res.render("home", { posts, logged_in: req.session.logged_in });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: 'Internal server error' });
   }
 });
 
+// Login route
+router.get('/login', async (req, res) => {
+  try {
+    if (req.session.logged_in) {
+      res.redirect('/dashboard'); // Redirect to dashboard if logged in
+      return;
+    }
+    res.render("login"); // Render login screen
+  } catch (err) {
+    res.status(500).json(err);
+    console.log(err);
+  }
+});
 
+// Signup route
+router.get('/signup', async (req, res) => {
+  try {
+    if (req.session.logged_in) {
+      res.redirect('/dashboard'); // Redirect to dashboard if logged in
+      return;
+    }
+    res.render("signup"); // Render signup screen
+  } catch (err) {
+    res.status(500).json(err);
+    console.log(err);
+  }
+});
+
+// Dashboard route
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
-    // Fetch the user's posts from the database
-    const posts = await Post.findAll({
+    // Fetch posts 
+    const dashData = await Post.findAll({
+      where: { user_id: req.session.user_id },
+      include: [{ model: User, attributes: ['username'] }],
+      order: [['createdAt', 'DESC']]
+    });
+    const posts = dashData.get({ plain: true });
+    // Render dashboard view 
+    res.render('dashboard', { ...posts, logged_in: req.session.logged_in });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+// Create post route
+router.get('/create-post', async (req, res) => {
+  try {
+    const makePost = await Post.findAll({
       where: { user_id: req.session.user_id },
       include: [{ model: User, attributes: ['username'] }],
       order: [['createdAt', 'DESC']]
     });
 
-    // Render the dashboard view with the user's posts
-    res.render('dashboard', { posts });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: 'Internal server error' });
+    const posts = makePost.get({ plain: true });
+
+    res.render("create-post", { ...posts, logged_in: req.session.logged_in });
+  } catch {
+    res.status(500).json(err);
+    console.log(err);
   }
 });
 
-
-router.get('/post/:id', async (req, res) => {
+// Update post route
+router.get('/update-post/:id', async (req, res) => {
   try {
-    // Fetch the post by its ID from the database
-    const post = await Post.findByPk(req.params.id, {
+    const updatePost = await Post.findByPk(req.params.id, {
+      include: [{ model: User, attributes: ['id'] }],
+    });
+
+    const posts = updatePost.get({ plain: true });
+
+    res.render("update-post", { ...posts, logged_in: req.session.logged_in });
+  } catch {
+    res.status(500).json(err);
+    console.log(err);
+  }
+});
+
+// Single post route
+router.get('/post/:id', withAuth, async (req, res) => {
+  try {
+    // Fetch post by ID 
+    const posts = await Post.findByPk(req.params.id, {
       include: [
         { model: User, attributes: ['username'] },
         { model: Comment, include: [{ model: User, attributes: ['username'] }] }
       ]
     });
 
-    // Render the single-post view with the fetched post
-    res.render('single-post', { post });
+    // Render single-post view 
+    res.render('single-post', { ...posts, logged_in: req.session.logged_in });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+// Add comment route
+router.get('/add-comment/:id', withAuth, async (req, res) => {
+  try {
+    // Fetch the post by ID 
+    const userData = await Post.findByPk(req.params.id, {
+      include: [
+        { model: User, attributes: ['username'] },
+        { model: Comment, include: [{ model: User, attributes: ['username'] }] }
+      ]
+    });
+    const posts = userData.get({ plain: true });
+    // Render add-comment view
+    res.render('add-comment', { ...posts, logged_in: req.session.logged_in });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: 'Internal server error' });

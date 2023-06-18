@@ -9,7 +9,7 @@
 
     <h3>Comments</h3>
     {{#if comments}}
-      {{#each comments}}
+      {{#each comments as |comment|}}
         <div class="comment">
           <p>{{this.username}} - {{formatDate this.createdAt}}</p>
           <p>{{this.comment}}</p>

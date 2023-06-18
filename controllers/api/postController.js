@@ -1,6 +1,18 @@
-const router = require('express').Router();
-const { Post, User, Comment } = require('../../models');
+const express = require('express');
+const router = express.Router();
+const { Post } = require('../../models');
 const withAuth = require('../../utils/auth');
+
+// Get all posts
+router.get("/", async (_, res) => {
+  try {
+    const postData = await Post.findAll();
+    res.json(postData);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 // Create a new post
 router.post('/', withAuth, async (req, res) => {
@@ -11,9 +23,8 @@ router.post('/', withAuth, async (req, res) => {
       user_id: req.session.user_id
     };
 
-    // Create a new post in the database
+    // Create new post in the database
     const newPost = await Post.create(postData);
-
     res.status(200).json(newPost);
   } catch (err) {
     console.error(err);
@@ -21,10 +32,21 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+// Get a post by its id
+router.get("/:id", async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id);
+    res.json(postData);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 // Update a post by its id
 router.put('/:id', withAuth, async (req, res) => {
   try {
-    const updatedPost = await Post.update(
+    const updatePost = await Post.update(
       {
         title: req.body.title,
         content: req.body.content
@@ -37,8 +59,8 @@ router.put('/:id', withAuth, async (req, res) => {
       }
     );
 
-    if (!updatedPost[0]) {
-      res.status(404).json({ message: 'No post found with this id' });
+    if (!updatePost[0]) {
+      res.status(404).json({ message: 'Post not found' });
       return;
     }
 
@@ -60,7 +82,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     });
 
     if (!deletedPost) {
-      res.status(404).json({ message: 'No post found with this id' });
+      res.status(404).json({ message: 'Post not found' });
       return;
     }
 

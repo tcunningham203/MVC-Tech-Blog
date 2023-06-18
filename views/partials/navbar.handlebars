@@ -14,22 +14,22 @@
                     <ul class="row navbar-nav  flex-fill bd-highlight ms-auto ">
                         <div class="d-grid gap-2 d-lg-flex  flex-fill bd-highlight ">
                             <div class="row col-lg-7 ">
-                            <button class="btn btn-outline-light  col-6 col-lg-5 mx-auto " id="map" type="button"
-                                style="font-size: 1.5rem" onclick="renderMapPage()"><i class="bi-geo-alt"
-                                    style="font-size: 1.5rem; "></i> Home</button>
-                            <button class="btn btn-outline-light  col-6 mx-auto col-lg-5" id="stamps" type="button"
-                                style="font-size: 1.5rem" onclick="renderStampsPage()"><i class="bi-journal-check "
-                                    style="font-size: 1.5rem; "></i> Dashboard</button>
+                            <a href="/" class="btn btn-outline-light  col-6 col-lg-5 mx-auto " id="map" type="button"
+                                style="font-size: 1.5rem" ><i class="bi-geo-alt"
+                                    style="font-size: 1.5rem; "></i> Home</a>
+                            <a href="/dashboard" class="btn btn-outline-light  col-6 mx-auto col-lg-5" id="stamps" type="button"
+                                style="font-size: 1.5rem" ><i class="bi-journal-check "
+                                    style="font-size: 1.5rem; "></i> Dashboard</a>
                             </div><div class="row col-lg-3 offset-lg-1">
                           
                                       {{#if logged_in}}
-                 <button class="btn btn-outline-secondary me-auto col-lg-5  col-12  " id="logout" type="button"
+                 <button id="/logout" class="btn btn-outline-secondary me-auto col-lg-5  col-12  " id="logout" type="button"
                                 style="font-size: 1rem"><i class="bi-power" style="font-size: 1rem;  "></i>
                                 Logout</button>
                 {{else}}
-                <button class="btn btn-outline-secondary me-auto col-lg-5  col-12  " id="login" type="button"
+                <a href="/login" class="btn btn-outline-secondary mt-2 mb-2 me-auto col-lg-5  col-12  " id="login" type="button"
                                 style="font-size: 1rem"><i class="bi-power" style="font-size: 1rem;  "></i>
-                                Login</button>
+                                Login</a>
                 {{/if}}
                            
                            </div>
