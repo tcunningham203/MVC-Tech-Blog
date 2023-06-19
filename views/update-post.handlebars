@@ -1,2 +1,78 @@
-{{!-- put updatepost stuff here--}}
+{{!-- this toast appears when you fail to update because you didnt fill the box--}}
+<div class="toast bg-danger text-white text-center " style="position: absolute; " id="err1" data-bs-delay="3300">
 
+  <strong class="me-auto h4 "><i class="bi-exclamation-triangle "></i> You didn't fill out everything yet.</strong>
+</div>
+
+{{!-- this toast appears when you fail to update because of some error--}}
+<div class="toast bg-danger text-white text-center " style="position: absolute; " id="err2" data-bs-delay="3300">
+
+  <strong class="me-auto h4 "><i class="bi-exclamation-triangle "></i> Failed to update post.</strong>
+</div>
+
+{{!-- this toast appears when you fail to delete because of some error--}}
+<div class="toast bg-danger text-white text-center " style="position: absolute; " id="err3" data-bs-delay="3300">
+
+  <strong class="me-auto h4 "><i class="bi-exclamation-triangle "></i> Failed to delete post.</strong>
+</div>
+
+{{!-- this toast appears when you update successfully--}}
+<div class="toast bg-success text-white text-center " style="position: absolute; " id="suc1" data-bs-delay="1500">
+
+  <strong class="me-auto h4 "><i class="bi-check-circle "></i> Your post was updated!</strong>
+</div>
+
+{{!-- this toast appears when you delete successfully--}}
+<div class="toast bg-success text-white text-center " style="position: absolute; " id="suc3" data-bs-delay="1500">
+
+  <strong class="me-auto h4 "><i class="bi-check-circle "></i> Your post was deleted!</strong>
+</div>
+<br>
+<div class="card p-3 m-4 mt-5 rounded bg-dark-subtle ">
+  <div class="row card-header bg-dark-subtle ">
+    <div class="card-title h3 col-lg-8 text-start">
+      Make edits to this post's title and content here. Or, delete it! 
+    </div>
+
+  </div>
+
+
+  <div class="card m-3 p-3">
+
+    <form class="form update-post-form">
+      <div class="form-group">
+
+        <textarea type="text" class="form-control" id="post1" placeholder="Edit your post's title here.">{{title}}</textarea>
+      </div>
+      <br>
+      <div class="form-group">
+        <textarea type="text" class="form-control" rows="5" id="post2"
+          placeholder="Edit your post's content here.">{{content}}</textarea>
+      </div>
+
+
+
+
+      <div class="row">
+        <div class="col-md-4 mt-2 " style="display: flex;justify-content: space-evenly; flex-direction: row;">
+          <button class="btn update-btn btn-outline-dark col-9 mt-2 " type="button">Update it!</button>
+        </div>
+         <div class="col-md-4 mt-2 " style="display: flex;justify-content: space-evenly; flex-direction: row;">
+          <button class="btn delete-btn btn-outline-dark col-9 mt-2 " type="sbutton">Delete it!</button>
+        </div>
+        <div class="col-md-4 mt-2 " style="display: flex;justify-content: space-evenly; flex-direction: row;">
+          <a href="/dashboard" class="btn btn-outline-dark col-9 mt-2 ">Cancel</a>
+        </div>
+      </div>
+    </form>
+
+
+  </div>
+
+
+
+</div>
+
+
+
+<script src="/js/updatePost.js"></script>

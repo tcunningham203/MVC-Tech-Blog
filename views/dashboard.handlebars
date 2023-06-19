@@ -1,34 +1,36 @@
 
-  <div class="container">
-    <h2>Welcome, {{user.username}}!</h2>
-    <h3>Your Blog Posts</h3>
-
-    {{#if posts}}
-      <ul class="list-group">
-        {{#each posts}}
-          <li class="list-group-item">
-            <a href="/post/{{this.id}}">{{this.title}}</a>
-            <button class="btn btn-danger btn-sm float-right" onclick="deletePost({{this.id}})">Delete</button>
-          </li>
-        {{/each}}
-      </ul>
-    {{else}}
-      <p>No posts yet. <a href="/create">Create a new post</a>.</p>
-    {{/if}}
-
-    <hr>
-
-    <h3>Create a New Post</h3>
-    <form action="/create" method="POST">
-      <div class="form-group">
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title" required>
-      </div>
-      <div class="form-group">
-        <label for="content">Content:</label>
-        <textarea name="content" id="content" rows="5" required></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Create</button>
-    </form>
+  <div class=" card p-3 m-4 bg-dark-subtle text-center rounded">
+    <h2 class="mt-2"><a href="/post" class="btn btn-outline-dark col-lg-3 " style="font-size:1.5rem" type="submit" >Create a New Post</a> or select a post you've made to change it.</h2>
   </div>
+ 
+<hr>
+{{#if logged_in}}
+{{#if posts.length}}
+{{#each posts as |post|}}
+<a href="/update-post/{{post.id}}">
+
+  <div class="card pt-3 ps-3 pe-3 m-4 rounded bg-dark-subtle ">
+    <div class="row card-header bg-dark-subtle ">
+      <div class="card-title h4 col-lg-8 text-start">
+        {{post.title}}
+      </div>
+      <div class="card-title col-lg-4 text-end">Posted by {{user.username}} on {{format_date post.date_created}}
+      </div>
+    </div>
+    <div class="row card-header bg-light ">
+      <div class="card text-start col m-0 pt-3 pb-3 ">
+        {{post.content}}
+      </div>
+    </div>
+  </div>
+</a>
+
+{{/each}}
+{{/if}}
+{{/if}}
+<br>
+<br>
+<br>
+
+
 

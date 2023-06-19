@@ -7,16 +7,16 @@ router.get('/', async (req, res) => {
   try {
     // Fetch all blog posts from the database
     const postFetch = await Post.findAll({
-      include: [
-        { model: User, attributes: ['username'] },
-        { model: Comment, include: [{ model: User, attributes: ['username'] }] }
-      ],
-      order: [['createdAt', 'DESC']]
-    });
+            include: [
+                {
+                    model: User,
+                    attributes: ['username'],
+                },],
+        });
     const posts = postFetch.map((post) => post.get({ plain: true }));
     // Render the homepage 
     res.render("home", { posts, logged_in: req.session.logged_in });
-  } catch (err) {
+  } catch {
     console.error(err);
     res.status(500).json({ message: 'Internal server error' });
   }
@@ -30,7 +30,7 @@ router.get('/login', async (req, res) => {
       return;
     }
     res.render("login"); // Render login screen
-  } catch (err) {
+  } catch {
     res.status(500).json(err);
     console.log(err);
   }
@@ -44,7 +44,7 @@ router.get('/signup', async (req, res) => {
       return;
     }
     res.render("signup"); // Render signup screen
-  } catch (err) {
+  } catch {
     res.status(500).json(err);
     console.log(err);
   }
@@ -61,24 +61,23 @@ router.get('/dashboard', withAuth, async (req, res) => {
     const posts = dashData.get({ plain: true });
     // Render dashboard view 
     res.render('dashboard', { ...posts, logged_in: req.session.logged_in });
-  } catch (err) {
+  } catch {
     console.error(err);
     res.status(500).json({ message: 'Internal server error' });
   }
 });
 
 // Create post route
-router.get('/create-post', async (req, res) => {
-  try {
-    const makePost = await Post.findAll({
-      where: { user_id: req.session.user_id },
-      include: [{ model: User, attributes: ['username'] }],
-      order: [['createdAt', 'DESC']]
-    });
+router.get('/post', async (req, res) => {
+    try {
+        const makePost = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password'] },
+            include: [{ model: Post }],
+        });
 
-    const posts = makePost.get({ plain: true });
+        const user = makePost.get({ plain: true });
 
-    res.render("create-post", { ...posts, logged_in: req.session.logged_in });
+    res.render("create-post", { ...user, logged_in: req.session.logged_in });
   } catch {
     res.status(500).json(err);
     console.log(err);
@@ -88,11 +87,16 @@ router.get('/create-post', async (req, res) => {
 // Update post route
 router.get('/update-post/:id', async (req, res) => {
   try {
-    const updatePost = await Post.findByPk(req.params.id, {
-      include: [{ model: User, attributes: ['id'] }],
-    });
+        const postData = await Post.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: ['id'],
+                },
+            ],
+        });
 
-    const posts = updatePost.get({ plain: true });
+        const posts = postData.get({ plain: true });
 
     res.render("update-post", { ...posts, logged_in: req.session.logged_in });
   } catch {
@@ -102,18 +106,18 @@ router.get('/update-post/:id', async (req, res) => {
 });
 
 // Single post route
-router.get('/post/:id', async (req, res) => {
+router.get('/comments/:id', async (req, res) => {
   try {
-    const posts = await Post.findByPk(req.params.id, {
-      include: [
-        { model: User, attributes: ['username'] },
-        { model: Comment, include: [{ model: User, attributes: ['username'] }] }
-      ]
-    });
+        const posts = await Post.findByPk(req.params.id, {
+            include: [
+                { model: User, attributes: ['username'],},
+                { model: Comment, include: [{ model: User, attributes: ['username'], },],},
+            ],
+        });
 
     const post = posts.get({ plain: true });
     // Render single-post view 
-    res.render('single-post', { ...post, logged_in: req.session.logged_in });
+    res.render('post-comments', { ...post, logged_in: req.session.logged_in });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: 'Internal server error' });
@@ -124,13 +128,16 @@ router.get('/post/:id', async (req, res) => {
 router.get('/add-comment/:id', withAuth, async (req, res) => {
   try {
     // Fetch the post by ID 
-    const userData = await Post.findByPk(req.params.id, {
-      include: [
-        { model: User, attributes: ['username'] },
-        { model: Comment, include: [{ model: User, attributes: ['username'] }] }
-      ]
-    });
-    const posts = userData.get({ plain: true });
+        const postData = await Post.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: ['id', 'username'],
+                },
+            ],
+        });
+
+        const posts = postData.get({ plain: true });
     // Render add-comment view
     res.render('add-comment', { ...posts, logged_in: req.session.logged_in });
   } catch (err) {

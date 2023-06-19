@@ -1,9 +1,8 @@
-const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
 const { User } = require('../../models');
 
 // Route to retrieve all user data
-router.get("/", async (_, res) => {
+router.get("/", async (req, res) => {
     try {
         // Retrieve user data from the database without password
         const userData = await User.findAll({

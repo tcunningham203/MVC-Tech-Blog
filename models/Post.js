@@ -5,7 +5,6 @@ class Post extends Model {}
 
 Post.init(
   {
-    // Model attributes
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -17,19 +16,24 @@ Post.init(
       allowNull: false,
     },
     content: {
-      type: DataTypes.TEXT,
-      allowNull: false,
+      type: DataTypes.STRING,
     },
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
-  },
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id'
+      },
+    },
   },
   {
-    // Model options
     sequelize,
-    timestamps: true,
+    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: 'post',

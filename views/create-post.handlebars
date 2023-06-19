@@ -1,17 +1,63 @@
+{{!-- this toast appears when you fail to post because you didnt fill the box--}}
+<div class="toast bg-danger text-white text-center " style="position: absolute; " id="err1" data-bs-delay="3300">
 
-  <div class="container">
-    <h2>Create New Post</h2>
+  <strong class="me-auto h4 "><i class="bi-exclamation-triangle "></i> You didn't fill out everything yet.</strong>
+</div>
 
-    <form action="/create" method="POST">
-      <div class="form-group">
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title" required>
-      </div>
-      <div class="form-group">
-        <label for="content">Content:</label>
-        <textarea name="content" id="content" rows="5" required></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Create</button>
-    </form>
+{{!-- this toast appears when you fail to post because of some error--}}
+<div class="toast bg-danger text-white text-center " style="position: absolute; " id="err2" data-bs-delay="3300">
+
+  <strong class="me-auto h4 "><i class="bi-exclamation-triangle "></i> Failed to create post.</strong>
+</div>
+
+{{!-- this toast appears when you post successfully--}}
+<div class="toast bg-success text-white text-center " style="position: absolute; " id="suc1" data-bs-delay="1500">
+
+  <strong class="me-auto h4 "><i class="bi-check-circle "></i> New post created!</strong>
+</div>
+<br>
+<div class="card p-3 m-4 mt-5 rounded bg-dark-subtle ">
+  <div class="row card-header bg-dark-subtle ">
+    <div class="card-title h3 col-lg-8 text-start">
+      Create a new post here and get the conversation started.
+    </div>
+
   </div>
 
+
+  <div class="card m-3 p-3">
+
+    <form class="form post-form">
+      <div class="form-group">
+
+        <input type="text" class="form-control" id="post1" placeholder="Put the title of your post here.">
+      </div>
+      <br>
+      <div class="form-group">
+        <textarea type="text" class="form-control" rows="5" id="post2"
+          placeholder="Write your full thoughts here."></textarea>
+      </div>
+
+
+
+
+      <div class="row">
+        <div class="col-6 mt-2 " style="display: flex;justify-content: space-evenly; flex-direction: row;">
+          <button class="btn btn-outline-dark col-9 mt-2 " type="submit">Post
+            it!</button>
+        </div>
+        <div class="col-6 mt-2 " style="display: flex;justify-content: space-evenly; flex-direction: row;">
+          <a href="/dashboard" class="btn btn-outline-dark col-9 mt-2 ">Cancel</a>
+        </div>
+      </div>
+    </form>
+
+
+  </div>
+
+
+
+</div>
+
+
+<script src="/js/newPost.js"></script>

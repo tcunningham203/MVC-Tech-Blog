@@ -17,7 +17,7 @@
       <a href="/add-comment/{{id}}" class="btn btn-outline-dark col-9 mt-2 " type="button">Add Comment</a>
     </div>
     <div class="col-6 mt-2 " style="display: flex;justify-content: space-evenly; flex-direction: row;">
-      <a href="/" id="signupbtn" class="btn btn-outline-dark col-9 mt-2 ">Go Back</a>
+      <a href="/" class="btn btn-outline-dark col-9 mt-2 ">Go Back</a>
     </div>
   </div>
 
@@ -36,9 +36,9 @@
 
   <div class="row  card ">
     <div class=" text-start col m-0 p-3">
-      {{comment.content}}
+      {{comment.comment}}
     </div>
-    <div class="card-title text-end p-1">{{user.username}} | {{format_date date_created}}
+    <div class="card-title text-end p-1">{{user.username}} | {{format_date comment.date_created}}
     </div>
   </div>
   <br>

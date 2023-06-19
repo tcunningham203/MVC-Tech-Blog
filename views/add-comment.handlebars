@@ -1,2 +1,72 @@
-{{!-- put add comment stuff here --}}
+{{!-- this toast appears when you fail to post because you didnt fill the box--}}
+<div class="toast bg-danger text-white text-center " style="position: absolute; " id="err1" data-bs-delay="3300">
 
+  <strong class="me-auto h4 "><i class="bi-exclamation-triangle "></i> You didn't write anything yet.</strong>
+</div>
+
+{{!-- this toast appears when you fail to post because of some error--}}
+<div class="toast bg-danger text-white text-center " style="position: absolute; " id="err2" data-bs-delay="3300">
+
+  <strong class="me-auto h4 "><i class="bi-exclamation-triangle "></i> Failed to post comment.</strong>
+</div>
+
+{{!-- this toast appears when you post successfully--}}
+<div class="toast bg-success text-white text-center " style="position: absolute; " id="suc1" data-bs-delay="1500">
+
+  <strong class="me-auto h4 "><i class="bi-check-circle "></i> Comment posted!</strong>
+</div>
+<br>
+<div class="card p-3 m-4 mt-5 rounded bg-dark-subtle ">
+    <div class="row card-header bg-dark-subtle ">
+        <div class="card-title h3 col-lg-8 text-start">
+            {{title}}
+        </div>
+        <div class="card-title col-lg-4 text-end">Posted by {{user.username}} on {{format_date date_created}}
+        </div>
+    </div>
+    <div class="row card-header bg-light ">
+        <div class="card text-start col m-0 pt-3 pb-3 ">
+            {{content}}
+        </div>
+    </div>
+
+        <div class="card m-3 p-3">
+
+            <form class="form comment-form">
+                <div class="form-group">
+                    <textarea type="text" class="form-control" rows="5" id="post2"
+                        placeholder="Add your thoughts..."></textarea>
+                </div>
+                
+
+
+
+                <div class="row">
+                    <div class="col-6 mt-2 " style="display: flex;justify-content: space-evenly; flex-direction: row;">
+                        <button class="btn btn-outline-dark col-9 mt-2 " type="submit" id="submit-btn" value="{{selectPost.id}}">Post
+                            it!</button>
+                    </div>
+                    <div class="col-6 mt-2 " style="display: flex;justify-content: space-evenly; flex-direction: row;">
+                        <a href="/post/{{id}}" class="btn btn-outline-dark col-9 mt-2 ">Cancel</a>
+                    </div>
+                </div>
+            </form>
+
+
+        </div>
+
+  
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<script src="/js/newComment.js"></script>
