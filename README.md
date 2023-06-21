@@ -14,6 +14,8 @@ A CMS-style blog site where developers can publish their blog posts and comment 
 
 This application is deployed on Heroku. Click here to try it out.
 
+https://safe-thicket-86598-f51cd826f717.herokuapp.com/
+
 ## Screenshot
 
 This is what the application looks like when you're on the homepage.
